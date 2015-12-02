@@ -33,7 +33,7 @@ echo $faker->cpf;  //Retorna um CPF válido gerado randomicamente
 
 * [CnpjGratis](https://github.com/jansenfelipe/cnpj-gratis)
 * [CpfGratis](https://github.com/jansenfelipe/cpf-gratis)
-* [CepGratis](https://github.com/jansenfelipe/cep-gratis)s
+* [CepGratis](https://github.com/jansenfelipe/cep-gratis)
 * [NFePHP-serialize](https://github.com/jansenfelipe/nfephp-serialize)
 
 ### License
