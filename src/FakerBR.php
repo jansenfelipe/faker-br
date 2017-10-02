@@ -3,6 +3,8 @@
 namespace JansenFelipe\FakerBR;
 
 use Faker\Provider\Base;
+use JansenFelipe\Utils\Mask;
+use JansenFelipe\Utils\Utils;
 
 /**
  * FakeBR: Provider do Faker <https://github.com/fzaninotto/Faker> para gerar dados brasileiros falsos com o intuito de testar softwares
@@ -51,7 +53,7 @@ class FakerBR extends Base
     /*
      * Gerador de CPF
      */
-    public static function cpf($verdadeiro = true)
+    public static function cpf($verdadeiro = true, $formatado = false)
     {
 
         $cpf = rand(100000000, 999999999);
@@ -79,7 +81,10 @@ class FakerBR extends Base
         $cpf .= ($d2 >= 10)?'0':$d2;
 
         if(!$verdadeiro)
-            return self::shuffleString($cpf);
+            $cpf = self::shuffleString($cpf);
+
+        if($formatado)
+            $cpf = Utils::mask($cpf, Mask::CPF);
 
         return $cpf;
     }
