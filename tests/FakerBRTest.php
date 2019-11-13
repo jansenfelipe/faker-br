@@ -12,7 +12,6 @@ class FakerBRTest extends PHPUnit_Framework_TestCase {
 
         $faker = Factory::create();
         $faker->addProvider(new FakerBR($faker));
-echo $faker->cnpj; die;
         $this->assertTrue(Utils::isCnpj($faker->cnpj));
         $this->assertTrue(Utils::isCpf($faker->cpf));
     }

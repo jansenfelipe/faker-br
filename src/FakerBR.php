@@ -42,10 +42,10 @@ class FakerBR extends Base
 
         $d2= 11 - ($total % 11);
 
-        $cnpj .= ($d2 >= 10)?'0':$d2;
-
-        if(!$verdadeiro)
-            return self::shuffleString($cnpj);
+        if($verdadeiro)
+            $cnpj .= ($d2 >= 10)?'0':$d2;
+        else
+            $cnpj .= ($d2 >= 9)?'1':$d2+1;
 
         return $cnpj;
     }
@@ -78,10 +78,10 @@ class FakerBR extends Base
 
         $d2= 11 - ($total % 11);
 
-        $cpf .= ($d2 >= 10)?'0':$d2;
-
-        if(!$verdadeiro)
-            $cpf = self::shuffleString($cpf);
+        if($verdadeiro)
+            $cpf .= ($d2 >= 10)?'0':$d2;
+        else
+            $cpf .= ($d2 >= 9)?'1':$d2+1;
 
         if($formatado)
             $cpf = Utils::mask($cpf, Mask::CPF);
